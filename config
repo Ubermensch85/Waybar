@@ -1,0 +1,127 @@
+
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar at the bottom of your screen
+    "height": 21, // Waybar height
+    // "width": 1366, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["wlr/workspaces",],
+    //"modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "temperature", "pulseaudio", "backlight", "network", "battery", "clock", "tray"],
+
+
+
+    "wlr/workspaces": {
+  "format": "{icon}",
+  "on-click": "activate",
+  //"icon-size": 21,
+  "format-icons": {
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "urgent": "",
+    "active": "",
+    "default": ""
+		},
+
+  "sort-by-number": true
+},
+
+
+
+"hyprland/window": {
+    "format": "{}",
+    "separate-outputs": true
+},
+
+
+"temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C "
+},
+
+
+
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+
+
+    "clock": {
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "memory": {
+        "format": "{}% "
+    },
+
+
+
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+
+
+
+        "format": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+	"icon-size": 21,
+        "format-icons": ["", "", "", "", ""]
+	},
+
+
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "icon-size": 21,
+    "format-icons": ["", ""]
+},
+
+
+
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+	"icon-size": 21,
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠"
+    },
+
+
+
+
+    "pulseaudio": {
+        //"scroll-step": 1,
+	"icon-size": 21,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+	},
+        "on-click": "pavucontrol"
+    },
+
+}
+
+
