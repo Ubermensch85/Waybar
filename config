@@ -1,13 +1,12 @@
-
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    "height": 21, // Waybar height
+    "height": 40, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces",],
-    //"modules-center": ["hyprland/window"],
-    "modules-right": ["cpu", "memory", "disk", "temperature", "pulseaudio", "backlight", "network", "battery", "clock", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/updates", "tray", "cpu", "memory", "disk", "temperature", "network","pulseaudio"],
     
 
 
@@ -57,8 +56,9 @@
 
 
     "clock": {
-        "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%H:%M}",
     },
+
     "cpu": {
         "format": "{usage}% "
     },
@@ -126,8 +126,21 @@
 
 
 
+"custom/updates": {
+       "format": "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+       "has-updates": "󱍷",
+       "updated": "󰂪 "
+       },        
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates", 
+       },
+},
+
 
 "disk": {
         "format": "{}% "
     },
 }
+
