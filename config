@@ -1,12 +1,13 @@
+
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    "height": 40, // Waybar height
+    "height": 37, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces",],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/updates", "tray", "cpu", "memory", "disk", "temperature", "network","pulseaudio"],
+    "modules-left": ["cpu", "memory", "disk", "temperature",],
+    "modules-center": ["wlr/workspaces",],
+    "modules-right": ["pulseaudio", "backlight", "network", "battery", "tray","clock",],
     
 
 
@@ -56,8 +57,12 @@
 
 
     "clock": {
-    "format": "{:%H:%M}",
+        "format": "  {:%H:%M}",
+        "format-alt": "  {:%d-%m-%Y}",
+        "interval": 1
     },
+
+
 
     "cpu": {
         "format": "{usage}% "
@@ -90,7 +95,7 @@
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
     "icon-size": 21,
-    "format-icons": ["", ""]
+    "format-icons": ["", "⛯"]
 },
 
 
@@ -114,8 +119,8 @@
         "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -126,21 +131,8 @@
 
 
 
-"custom/updates": {
-       "format": "{} {icon}",
-       "return-type": "json",
-       "format-icons": {
-       "has-updates": "󱍷",
-       "updated": "󰂪 "
-       },        
-       "exec-if": "which waybar-module-pacman-updates",
-       "exec": "waybar-module-pacman-updates", 
-       },
-},
-
 
 "disk": {
         "format": "{}% "
     },
 }
-

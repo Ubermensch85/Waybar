@@ -148,7 +148,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #1aa9d9;
+	background: #b7d66d;
 	/*background: #1A1826;*/
 }
 
@@ -163,9 +163,6 @@ window#waybar.hidden {
 	color: #161320;
 	background: #b7d66d;
 }
-
-
-
 #cpu {
 	margin-top: 6px;
 	margin-left: 8px;
@@ -175,7 +172,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #96CDFB;
+	background: #1aa9d9;
 }
 
 #tray {
@@ -187,7 +184,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #B5E8E0;
-	background: #494952;
+	background: #c2538e;
 }
 
 #custom-launcher {
@@ -233,11 +230,11 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
+	margin-bottom: 0px;
 	border-radius: 10px;
-        margin-bottom: 0px;
 	transition: none;
 	color: #161320;
-	background: #f1a7c6;
+	background: #E8A2AF;
 }
 
 #custom-media {
@@ -278,10 +275,6 @@ window#waybar.hidden {
         /*background: #1A1826;*/
 }
 
-
-
-
-
 #disk {
         margin-top: 6px;
         margin-left: 8px;
@@ -293,4 +286,3 @@ window#waybar.hidden {
         color: #1A1826;
         background: #c2538e;
 }
-
