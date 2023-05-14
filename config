@@ -1,13 +1,12 @@
-
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
-    "height": 37, // Waybar height
+    "height": 40, // Waybar height
     // "width": 1366, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["cpu", "memory", "disk", "temperature",],
-    "modules-center": ["wlr/workspaces",],
-    "modules-right": ["pulseaudio", "backlight", "network", "battery", "tray","clock",],
+    "modules-left": ["custom/updates", "disk", "cpu", "memory"],
+    "modules-center": ["wlr/workspaces"],
+    "modules-right": ["temperature", "network","pulseaudio", "tray", "clock"],
     
 
 
@@ -56,12 +55,11 @@
     },
 
 
-    "clock": {
+  "clock": {
         "format": "  {:%H:%M}",
         "format-alt": "  {:%d-%m-%Y}",
         "interval": 1
     },
-
 
 
     "cpu": {
@@ -95,7 +93,7 @@
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
     "icon-size": 21,
-    "format-icons": ["", "⛯"]
+    "format-icons": ["", ""]
 },
 
 
@@ -103,7 +101,7 @@
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
 	"icon-size": 21,
-        "format-wifi": "{essid} ",
+        "format-wifi": "{essid}  ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },
@@ -119,8 +117,8 @@
         "format-muted": "",
         "format-icons": {
             "headphones": "",
-            "handsfree": "",
-            "headset": "",
+            "handsfree": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -130,9 +128,26 @@
     },
 
 
+"disk": {        
+	 "format": "{}% "     
+},
 
 
-"disk": {
-        "format": "{}% "
-    },
+"custom/updates": {
+       "format": "{} {icon}",
+       "return-type": "json",
+       "format-icons": {
+       "has-updates": " 󱍷 ",
+       "updated": " 󰂪  "
+       },        
+       "exec-if": "which waybar-module-pacman-updates",
+       "exec": "waybar-module-pacman-updates", 
+       },
+},
+
+
+
+
+
+
 }

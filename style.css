@@ -79,7 +79,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #b8d666;
+	background: #bea925;
 }
 
 #pulseaudio {
@@ -91,7 +91,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #1A1826;
-	background: #f1a7c6;
+	background: #bea925;
 }
 
 #battery {
@@ -103,7 +103,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #1aa9d9;
+	background: #bea925;
 }
 
 #battery.charging, #battery.plugged {
@@ -137,7 +137,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #733092;
+	background: #bea925;
 }
 #clock {
 	margin-top: 6px;
@@ -148,7 +148,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #b7d66d;
+	background: #bea925;
 	/*background: #1A1826;*/
 }
 
@@ -161,8 +161,11 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #b7d66d;
+	background: #bea925;
 }
+
+
+
 #cpu {
 	margin-top: 6px;
 	margin-left: 8px;
@@ -172,7 +175,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #161320;
-	background: #1aa9d9;
+	background: #bea925;
 }
 
 #tray {
@@ -184,7 +187,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
 	color: #B5E8E0;
-	background: #c2538e;
+	background: #bea925;
 }
 
 #custom-launcher {
@@ -196,7 +199,7 @@ window#waybar.hidden {
 	border-radius: 10px;
 	transition: none;
     color: #89DCEB;
-    background: #161320;
+    background: #bea925;
 }
 
 #custom-power {
@@ -230,11 +233,11 @@ window#waybar.hidden {
 	margin-left: 8px;
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-bottom: 0px;
 	border-radius: 10px;
+        margin-bottom: 0px;
 	transition: none;
 	color: #161320;
-	background: #E8A2AF;
+	background: #bea925;
 }
 
 #custom-media {
@@ -259,7 +262,7 @@ window#waybar.hidden {
         border-radius: 10px;
         transition: none;
         color: #161320;
-        background: #96CDFB;
+        background: #bea925;
 }
 
 #temperature {
@@ -271,9 +274,13 @@ window#waybar.hidden {
         border-radius: 10px;
         transition: none;
         color: #161320;
-        background: #c1dbf2;
+        background: #bea925;
         /*background: #1A1826;*/
 }
+
+
+
+
 
 #disk {
         margin-top: 6px;
@@ -284,5 +291,6 @@ window#waybar.hidden {
         border-radius: 10px;
         transition: none;
         color: #1A1826;
-        background: #c2538e;
+        background: #bea925;
 }
+
