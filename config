@@ -5,14 +5,14 @@
     // "width": 1366, // Waybar width
     // Choose the order of the modules
     "modules-left": ["custom/updates", "disk", "cpu", "memory"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": ["temperature", "network","pulseaudio", "tray", "clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["temperature", "network", "backlight", "pulseaudio", "battery", "tray", "clock"],
     
 
 
 
 
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
   "format": "{icon}",
   "on-click": "activate",
   //"icon-size": 21,
@@ -56,8 +56,8 @@
 
 
   "clock": {
-        "format": "  {:%H:%M}",
-        "format-alt": "  {:%d-%m-%Y}",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d-%m-%Y}",
         "interval": 1
     },
 
@@ -81,7 +81,7 @@
 
 
 
-        "format": "{capacity}% {icon}",
+        "format": "{capacity} {icon} ",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
 	"icon-size": 21,
@@ -151,3 +151,4 @@
 
 
 }
+

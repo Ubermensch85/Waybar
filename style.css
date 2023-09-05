@@ -90,7 +90,7 @@ window#waybar.hidden {
 	margin-bottom: 0px;
 	border-radius: 10px;
 	transition: none;
-	color: #1A1826;
+	color: #161320;
 	background: #bea925;
 }
 
@@ -108,7 +108,7 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
 	color: #161320;
-    background-color: #B5E8E0;
+    background-color: #bea925;
 }
 
 #battery.critical:not(.charging) {
@@ -198,7 +198,7 @@ window#waybar.hidden {
 	padding-right: 5px;
 	border-radius: 10px;
 	transition: none;
-    color: #89DCEB;
+    color: #161320;
     background: #bea925;
 }
 
@@ -293,4 +293,5 @@ window#waybar.hidden {
         color: #1A1826;
         background: #bea925;
 }
+
 
