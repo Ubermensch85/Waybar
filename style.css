@@ -1,297 +1,81 @@
-x* {
-	border: none;
-	border-radius: 10;
-    font-family: "JetbrainsMono Nerd Font" ;
-	font-size: 10px;
-	min-height: 6px;
+/* STILE BASE */
+* {
+    all: unset;
+    font-family: "Iosevka Nerd Font";
+    font-size: 14px;
+    min-height: 0;
 }
 
+/* BARRA PRINCIPALE */
 window#waybar {
-	background: transparent;
+    background-color: transparent;
 }
 
-window#waybar.hidden {
-	opacity: 0.2;
+/* CONTENITORE UNIFICATO - Sfondo trasparente uniforme */
+#waybar > box {
+    background-color: rgba(50, 50, 50, 0.65);  /* Grigio semitrasparente */
+    border-radius: 12px;
+    margin: 4px;  /* Margini molto ridotti */
+    padding: 0 2px;
+    min-height: 34px;
+    border: 1px solid rgba(100, 100, 100, 0.2);  /* Bordo sottile per definizione */
 }
 
-
-
-#window {
-	margin-top: 6px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 10px;
-       	transition: none;
-    	color: #161320;
-	font-family: "JetbrainsMono Nerd Font";
-	background: #B5E8E0;
-}
-#tags {
-	margin-top: 6px;
-	margin-left: 12px;
-	font-size: 4px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	background: #161320;
-	transition: none;
+/* MODULI COMPLETAMENTE TRASPARENTI */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
-#tags button {
-	transition: none;
-	color: #B5E8E0;
-	background: transparent;
-	font-size: 16px;
-	border-radius: 2px;
-}
-
-#tags button.occupied {
-	transition: none;
-	color: #F28FAD;
-	background: transparent;
-	font-size: 4px;
-}
-
-#tags button.focused {
-	color: #ABE9B3;
-    border-top: 2px solid #ABE9B3;
-    border-bottom: 2px solid #ABE9B3;
-}
-
-#tags button:hover {
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: #FAE3B0;
-    border-color: #E8A2AF;
-    color: #E8A2AF;
-}
-
-#tags button.focused:hover {
-    color: #E8A2AF;
-}
-
-#network {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-#pulseaudio {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-#battery {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-#battery.charging, #battery.plugged {
-	color: #161320;
-    background-color: #bea925;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #B5E8E0;
-    color: #161320;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes blink {
-    to {
-        background-color: #BF616A;
-        color: #B5E8E0;
-    }
-}
-
-#backlight {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-#clock {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-	/*background: #1A1826;*/
-}
-
-#memory {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-
-
-#cpu {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-#tray {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
-	color: #B5E8E0;
-	background: #bea925;
-}
-
-#custom-launcher {
-	font-size: 24px;
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 5px;
-	border-radius: 10px;
-	transition: none;
-    color: #161320;
-    background: #bea925;
-}
-
-#custom-power {
-	font-size: 20px;
-	margin-top: 6px;
-	margin-left: 8px;
-	margin-right: 8px;
-	padding-left: 10px;
-	padding-right: 5px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #F28FAD;
-}
-
-#custom-wallpaper {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #C9CBFF;
-}
-
-#custom-updates {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 10px;
-        margin-bottom: 0px;
-	transition: none;
-	color: #161320;
-	background: #bea925;
-}
-
-#custom-media {
-	margin-top: 6px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
-	color: #161320;
-	background: #F2CDCD;
-}
-
-
-#workspaces {
-        margin-top: 6px;
-        margin-left: 8px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-bottom: 0px;
-        border-radius: 10px;
-        transition: none;
-        color: #161320;
-        background: #bea925;
-}
-
+/* ELEMENTI SENZA SFONDO */
+#workspaces,
+#cpu,
+#memory,
+#clock,
+#pulseaudio,
+#battery,
+#tray,
+#network,
 #temperature {
-        margin-top: 6px;
-        margin-left: 8px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-bottom: 0px;
-        border-radius: 10px;
-        transition: none;
-        color: #161320;
-        background: #bea925;
-        /*background: #1A1826;*/
+    background-color: transparent;  /* Rimuove qualsiasi sfondo */
+    padding: 0 8px;
+    margin: 0;
+    border-radius: 0;  /* Rimuove i bordi arrotondati individuali */
 }
 
-
-
-
-
-#disk {
-        margin-top: 6px;
-        margin-left: 8px;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-bottom: 0px;
-        border-radius: 10px;
-        transition: none;
-        color: #1A1826;
-        background: #bea925;
+/* WORKSPACES */
+#workspaces button {
+    padding: 0 6px;
+    color: #B5E8E0;
+    background-color: transparent;
 }
 
+#workspaces button.active {
+    color: #ABE9B3;
+    text-shadow: 0 0 5px rgba(171, 233, 179, 0.5);
+}
+
+/* ELEMENTI INTERATTIVI */
+#clock {
+    font-weight: bold;
+}
+
+#battery.critical {
+    color: #ff5555;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    to { opacity: 0.5; }
+}
+
+/* TOOLTIP */
+tooltip {
+    background-color: rgba(50, 50, 50, 0.9);
+    border-radius: 6px;
+    padding: 8px;
+}
 
