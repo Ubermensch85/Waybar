@@ -1,204 +1,157 @@
-
-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar at the bottom of your screen
+    "layer": "top",
     "position": "top",
-    "height": 34,
-    "spacing": 4,
-    "margin-top": "15",
-    "margin-bottom": "0",
-    "margin-left": "15",
-    "margin-right": "15",
-    "modules-left": ["custom/arch", "custom/updates", "disk", "cpu", "memory"],
+    "height": 32,
+    "spacing": 5,
+    "margin-top": 3,
+    "margin-left": 3,
+    "margin-right": 3,
+
+    "modules-left": ["custom/arch", "custom/updates", "disk", "cpu", "memory", "custom/weather"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["temperature", "custom/gammastep", "backlight", "pulseaudio", "battery", "tray", "clock"],
-   
+    "modules-right": ["temperature", "custom/gammastep", "backlight", "pulseaudio", "battery", "network", "tray", "clock"],
 
-
- "hyprland/workspaces": {
+   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-        "1": "I",
-        "2": "II",
-        "3": "III",
-        "4": "IV",
-        "5": "V",
-        "6": "VI",
-        "7": "VII",
-        "8": "VIII",
-        "9": "IX",
-        "10": "X"
+        "1": "<span font='DejaVu Serif 11'>Ⅰ</span>",
+        "2": "<span font='DejaVu Serif 11'>Ⅱ</span>",
+        "3": "<span font='DejaVu Serif 11'>Ⅲ</span>",
+        "4": "<span font='DejaVu Serif 11'>Ⅳ</span>",
+        "5": "<span font='DejaVu Serif 11'>Ⅴ</span>",
+        "6": "<span font='DejaVu Serif 11'>Ⅵ</span>",
+        "7": "<span font='DejaVu Serif 11'>Ⅶ</span>",
+        "8": "<span font='DejaVu Serif 11'>Ⅷ</span>",
+        "9": "<span font='DejaVu Serif 11'>Ⅸ</span>",
+        "10": "<span font='DejaVu Serif 11'>Ⅹ</span>"
+    }
+},
+
+    "custom/arch": {
+    "format": " <span size='x-large'>󰣇</span> ",
+        "tooltip": false,
+        "on-click": "python3 ~/.config/waybar/scripts/show_arch_info.py"
     },
-    "all-outputs": false,
-    "active-only": false,
-    "on-click": "activate"
+
+"tray": {
+    "ignore": ["innu", "Innu"]
 },
 
 
-"hyprland/window": {
+    "custom/updates": {
     "format": "{}",
-    "separate-outputs": true
+    "interval": 60,
+    "exec": "/usr/local/bin/check-updates.sh",
+    "exec-if": "exit 0",
+    "on-click": "alacritty -e bash -c '~/update.sh; read -p \"Premi Enter per chiudere...\"'",
+    "on-click-right": "pkill -RTMIN+8 waybar",
+    "signal": 8
 },
 
-
-"temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    // "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C "
-},
-
-
-
-
-    "tray": {
-        // "icon-size": 21,
-	"spacing": 10
-	
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "return-type": "json"
     },
 
+    "custom/gammastep": {
+        "exec": "~/.config/waybar/scripts/gammastep_status.sh",
+        "return-type": "json",
+        "interval": 5
+    },
 
-
-  "clock": {
-        "format": "⌚ {:%H:%M}",
-        "format-alt": "⌚ {:%d-%m-%Y}",
-	"interval": 1,
-        "tooltip-format": "📅 <tt>{calendar}</tt>",
+    "clock": {
+        "format": "  {:%H:%M}",
+        "format-alt": "{:%d-%m-%Y}",
+        "interval": 1,
+        "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
-                    "mode"          : "month",
-                    "mode-mon-col"  : 2,
-                    //"weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "on-click-right": "mode",
-                    "format": {
-                              "months":     "<span color='#fffffe'><b>{}</b></span>",
-                              "days":       "<span color='#efefef'><b>{}</b></span>",
-                              //"weeks":      "<span color='#999999'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff0000'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#4d97ff'><b>{}</b></span>",
+                "today": "<span color='#ff6384'><b><u>{}</u></b></span>"
+            }
+        }
     },
-
-
-    "cpu": {
-        "format": "{usage}%"
-    },
-    "memory": {
-        "format": "{}% 🧠"
-    },
-
-
-
-    "battery": {
-        "bat": "BAT0",
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-
-
-
-    	"format": "{capacity}% {icon}",
-    	"format-charging": "{capacity}% ⚡",
-    	"format-discharging": "{capacity}% {icon}",
-    	"format-full": "{capacity}%🔋",
-    	"tooltip-format": "{power}W",
-    	"icon-size": 21,
-    	"format-icons": ["", "", "", "", ""]
-	},
-
-
-"backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "icon-size": 21,
-    "format-icons": ["🌑", "💡"]
-},
-
-
 
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-	"icon-size": 21,
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠",
-	"wifi_click_action": "nm-connection-editor"
+        "format-wifi": "󰤨 ",
+        "format-ethernet": "󰈀 ",
+        "format-disconnected": "󰤮 ",
+		"tooltip-format-wifi": "WiFi: {essid}\nSegnale: {signalStrength}%\nIP: {ipaddr}",
+    "tooltip-format-ethernet": "Ethernet\nIP: {ipaddr}",
+    "tooltip-format-disconnected": "Nessuna connessione",
+	"on-click": "networkmanager_dmenu"
+    },
 
- },
 
+    "cpu": { "format": "  {usage}%" },
+    "memory": { "format": "󰘚  {percentage}%" },
+    "disk": { "format": "󰋊  {percentage_used}%" },
+    "temperature": { "format": "  {temperatureC}°C" },
+    
+    "backlight": {
+        "format": "{icon}   {percent}%",
+        "tooltip-format": "{percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"] 
+    },    
+    
+    "battery": {
+    "states": {
+        "warning": 18,
+        "critical": 5
+    },
+    "format": "{icon}    {capacity}%",
+    "format-charging": "    {capacity}%",
+    "format-plugged": "   {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{power}W "
+},
 
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
 
-    "pulseaudio": {
-        //"scroll-step": 1,
-	"icon-size": 21,
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "🔇",
+    "pulseaudio#mic": {
+        "scroll-step": 10,
+        "format": "{format_source}",
+        "format-bluetooth": "{icon}",
+        "format-muted": "<span font='Font Awesome 7 Free'></span> ", 
+        "format-source": "",
+        "format-source-muted": "",
         "format-icons": {
-            "headphones": "",
-            "handsfree": "",
+            "headphone": "",
+            "hands-free": "",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["🔉", "🔊"]
-	},
-        "on-click": "pavucontrol"
+            "default": ["", "", ""]
+        },
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip-format": "{volume}%"
     },
 
-
-"disk": {        
-	 "format": "{}% 💿"     
-},
-
-
-"custom/arch": {
-  "format": "  {}  ", // spazio prima e dopo
-  "interval": 3600,
-  "exec": "echo -e '\uf303'",
-  "tooltip": false,
-  "on-click": "~/.config/waybar/scripts/show_arch_info.sh"
-},
-
-"custom/gammastep": {
-    "exec": "~/.config/waybar/scripts/gammastep_status.sh",
-    "return-type": "json",
-    "interval": 5,
-    "tooltip": false
-},
-
-
-
-
-"custom/updates": {
-       "format": "{} {icon}",
-       "return-type": "json",
-       "format-icons": {
-       "has-updates": " 🛠️",
-       "updated": "🐧"
-       },        
-       "exec-if": "which waybar-module-pacman-updates",
-       "exec": "waybar-module-pacman-updates", 
-       },
-},
-
-
-#bluetooth {
-  color: black;
-},
-
-
-
+    "pulseaudio": {
+        "scroll-step": 10,
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon}",
+        "format-muted": "󰝟 ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "tooltip-format": "{volume}%"
+    }
 }
-
